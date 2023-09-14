@@ -30,6 +30,6 @@ module.exports = function(app) {
     app.delete('/files/public_url', [authJwt], asyncHandler(FileController.deletePublicUrl), [validationMid])
 
     //-- Render file
-    app.get('/files/:hash', asyncHandler(FileController.getByUrl), [validationMid])
+    app.get('/files/:hash', [authJwt], asyncHandler(FileController.getByUrl), [validationMid])
 
 }
